@@ -1,0 +1,9 @@
+@import url(./__header/main__header.css);
+@import url(./__text/main__text.css);
+
+.main {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 0 416px;
+}

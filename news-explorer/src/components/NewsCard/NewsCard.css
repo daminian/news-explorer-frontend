@@ -1,0 +1,26 @@
+@import url(./__photo/card__photo.css);
+@import url(./__date/card__date.css);
+@import url(./__title/card__title.css);
+@import url(./__info/card__info.css);
+@import url(./__text/card__text.css);
+@import url(./__source/card__source.css);
+@import url(./__saved/card__saved.css);
+@import url(./__saved-info/card__saved-info.css);
+@import url(./__saved-text/card__saved-text.css);
+@import url(./__tooltip/card__tooltip.css);
+@import url(./__delete/card__delete.css);
+@import url(./__delete-info/card__delete-info.css);
+@import url(./__theme/card__theme.css);
+@import url(./__theme-text/card__theme-text.css);
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 400px;
+    max-height: 576px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #FFFFFF;
+}

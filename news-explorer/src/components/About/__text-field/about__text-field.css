@@ -1,0 +1,6 @@
+.about__text-field {
+    display: flex;
+    flex-direction: column;
+    height: 144px;
+    justify-content: space-between;
+}
