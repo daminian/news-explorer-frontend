@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import NewsCard from '../NewsCard/NewsCard.js';
+import { Route } from 'react-router-dom';
 import { CurrentCardContext } from '../../context/CurrentCardContext.js';
 
 
-function NewsCardList({ handleClick, loggedIn }) {
+function NewsCardList({ handleClick, loggedIn, news }) {
 
     const cards = useContext(CurrentCardContext);
 
@@ -16,7 +17,9 @@ function NewsCardList({ handleClick, loggedIn }) {
     return (
         <>
             <section className="cards">
-                <h2 className="cards__header">Результаты поиска</h2>
+                <Route exact path='/'>
+                    <h2 className="cards__header">Результаты поиска</h2>
+                </Route>
                 <div className="cards__list">
                     {
                         cards && cards.slice(0, 3).map((item) => (

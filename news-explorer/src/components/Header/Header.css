@@ -1,9 +1,11 @@
 @import url(./__nav/header__nav.css);
 @import url(./__auth/header__auth.css);
+@import url(./__auth/_savedNewsPage/header__auth_savedNewsPage.css);
 @import url(./__auth/_loggedIn/header__auth_loggedIn.css);
 @import url(./__field/header__field.css);
 @import url(./__logo/header__logo.css);
 @import url(./__exit/header__exit.css);
+@import url(./__exit/_savedNews/header__exit_savedNews.css);
 @import url(./__logout/header__logout.css);
 @import url(./__mobile/header__mobile.css);
 @import url(./__item/header__item.css);

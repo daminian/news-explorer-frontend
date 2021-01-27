@@ -7,17 +7,16 @@ import About from '../About/About.js';
 import Footer from '../Footer/Footer.js';
 import { CurrentUserContext, initialUser } from '../../context/CurrentUserContext.js';
 import { CurrentCardContext, initiaCards } from '../../context/CurrentCardContext.js';
-// import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader.js';
-// import SavedNews from '../SavedNews/SavedNews.js';
-// import Register from '../Register/Register.js';
-// import Login from '../Login/Login.js';
-// import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
-// import HeaderMobile from '../HeaderMobile/HeaderMobile.js';
+import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader.js';
+import SavedNews from '../SavedNews/SavedNews.js';
+import Register from '../Register/Register.js';
+import Login from '../Login/Login.js';
+import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import { useForm } from 'react-hook-form';
 
 function App() {
 
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(true);
     const [currentUser, setcurrentUser] = useState(initialUser);
     const [cards, setCards] = useState(initiaCards);
     const [email, setEmail] = useState('');
@@ -141,13 +140,13 @@ function App() {
                             <About />
                             </Route>
 
-                            <Footer />
-                            {/* <Route path='/saved-news'>
+                            <Route path='/saved-news'>
                                 <SavedNewsHeader />
                                 <SavedNews />
                             </Route>
 
-
+                            <Footer />
+                            
                             <Register
                                 email={email}
                                 setEmail={setEmail}
@@ -184,7 +183,7 @@ function App() {
                                 isOpen={registerOk}
                                 onClose={closeAllPopups}
                                 handleLogin={handleLogin}>
-                            </InfoTooltip> */}
+                            </InfoTooltip>
 
                         </CurrentCardContext.Provider>
                     </ CurrentUserContext.Provider >

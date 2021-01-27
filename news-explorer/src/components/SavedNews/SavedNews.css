@@ -1,0 +1,10 @@
+@import url(./__list/saved-articles__list.css);
+
+.saved-articles {
+    background: #F5F6F7;
+    display: flex;
+    padding: 62px 95px;
+    column-gap: 16px;
+    row-gap: 16px;
+    flex-wrap: wrap;
+}
