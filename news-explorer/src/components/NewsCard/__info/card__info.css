@@ -2,3 +2,9 @@
     height: 230px;
     padding: 20px 24px 10px 24px;
 }
+
+@media screen and (max-width: 1024px) {
+    .card__info {
+        padding: 16px;
+    }
+  }

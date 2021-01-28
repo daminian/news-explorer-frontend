@@ -22,3 +22,13 @@
 .searchForm__button:active {
     background: #2A65CC;
 }
+
+.searchForm__button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .searchForm__button {
+        height: 56px;
+    }
+}

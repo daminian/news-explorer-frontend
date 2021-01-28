@@ -1,10 +1,7 @@
 import React from 'react';
 import SearchForm from '../SearchForm/SearchForm.js';
-// import About from '../About/About.js';
-import NewsCardList from '../NewsCardList/NewsCardList.js';
 
-
-function Main({handleClick, loggedIn, setCards}) {
+function Main() {
 
     return (
         <>

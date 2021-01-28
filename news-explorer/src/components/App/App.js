@@ -16,8 +16,8 @@ import { useForm } from 'react-hook-form';
 
 function App() {
 
-    const [loggedIn, setLoggedIn] = useState(true);
-    const [currentUser, setcurrentUser] = useState(initialUser);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [currentUser, setCurrentUser] = useState(initialUser);
     const [cards, setCards] = useState(initiaCards);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -89,6 +89,7 @@ function App() {
 
     function handleSubmitRegister() {
         console.log('Register')
+        showRegisterOk()
     }
 
     function handleSubmitLogin() {
@@ -130,14 +131,12 @@ function App() {
                                 popupLoginOpen={popupLoginOpen}/>
 
                             <Route exact path='/'>
-                            <Main
-                                handleClick={handleSaveArtical}
-                                loggedIn={loggedIn}
-                                setCards={setCards}
-
-                            />
-                            <NewsCardList />
-                            <About />
+                                <Main />
+                                <NewsCardList handleClick={handleSaveArtical}
+                                    loggedIn={loggedIn}
+                                    setCards={setCards}
+                                />
+                                <About />
                             </Route>
 
                             <Route path='/saved-news'>
@@ -161,7 +160,6 @@ function App() {
                                 register={register}
                                 errors={errors}
                                 handleSubmit={handleSubmit(handleSubmitRegister)}
-
                             />
 
                             <Login

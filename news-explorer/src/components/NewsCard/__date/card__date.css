@@ -5,3 +5,9 @@
     color: #B6BCBF;
     margin: 0;
 }
+
+@media screen and (max-width: 1024px) {
+    .card__date {
+        padding-bottom: 12px;
+    }
+}

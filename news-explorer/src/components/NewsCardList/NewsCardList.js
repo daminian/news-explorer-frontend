@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { CurrentCardContext } from '../../context/CurrentCardContext.js';
 
 
-function NewsCardList({ handleClick, loggedIn, news }) {
+function NewsCardList({ handleClick, loggedIn }) {
 
     const cards = useContext(CurrentCardContext);
 

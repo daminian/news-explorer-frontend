@@ -1,10 +1,16 @@
 .card__text {
     font-family: 'Roboto';
     font-size: 16px;
-    line-height: 1.38;
+    line-height: 1.37;
     color: #1A1B22;
     max-height: 110px;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .card__text {
+        max-height: 88px;
+    }
 }

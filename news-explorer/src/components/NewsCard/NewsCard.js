@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from "react-router-dom";
 
-function NewsCard({ card, handleClick, loggedIn, photo, date, title, text, source, theme }) {
+function NewsCard({ card, handleClick, loggedIn, photo, date, title, text, source, theme, link }) {
 
     const [saveArticle, setSaveArticle] = useState(false);
     const location = useLocation();
@@ -52,7 +52,7 @@ function NewsCard({ card, handleClick, loggedIn, photo, date, title, text, sourc
 
             <div className="card__info">
                 <p className="card__date">{date}</p>
-                <h3 className="card__title">{title}</h3>
+                <a className="card__title" href={link}>{title}</a>
                 <p className="card__text">{text}</p>
                 
             </div>

@@ -27,11 +27,11 @@ function PopupWithForm({ name, isOpen, title, children, submitButtonText, onClos
             !popupWithoutButton && <p className="popup__text">Или&nbsp;</p>
           }
           {
-            RegOpen &&  <button className={`popup__text popup__text_enter popup__text_${popupWithoutButton && "info"}`}
-            onClick={handleLogin}>{text}</button>
+            RegOpen &&  <a className={`popup__text popup__text_enter popup__text_${popupWithoutButton && "info"}`}
+            onClick={handleLogin}>{text}</a>
           }
           {
-            loginOpen &&  <button className="popup__text popup__text_enter" onClick={handleRegister}>{text}</button>
+            loginOpen &&  <a className="popup__text popup__text_enter" onClick={handleRegister}>{text}</a>
           }
           
            

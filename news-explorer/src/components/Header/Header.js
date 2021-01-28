@@ -4,6 +4,7 @@ import headerLogo from '../../images/header__logo.svg';
 import headerLogoSavedNews from '../../images/header__logo_savedNews.svg';
 import headerLogOut from '../../images/header__logout.svg';
 import headerLogOutDark from '../../images/header__logo-dark.svg';
+import HeaderMobile from '../HeaderMobile/HeaderMobile.js';
 import { Link, useLocation } from "react-router-dom";
 
 
@@ -26,7 +27,6 @@ function Header({ loggedIn, handleRegister, handleLogOut, mobileView, handleMobi
                         <img className="header__logo" src={headerLogoSavedNews} alt="Логотип Исследователь новостей" ></img>
                     }
                     
-                    
                     {
                        window.innerWidth < 767 && (popupRegisterOpen || popupLoginOpen) ?
 
@@ -39,7 +39,6 @@ function Header({ loggedIn, handleRegister, handleLogOut, mobileView, handleMobi
                         </>   
                     }
                 
-
                     {
                         window.innerWidth > 767 &&
 
@@ -48,8 +47,9 @@ function Header({ loggedIn, handleRegister, handleLogOut, mobileView, handleMobi
                                 Главная</Link>
 
                             {loggedIn && <Link to="/saved-news" className={`header__auth header__auth_savedNews 
-                        header__auth_${location.pathname === '/saved-news' && "main"}
-                        header__auth_${location.pathname === '/saved-news' && "savedNewsPage"}`}>Сохранённые статьи</Link>}
+                                header__auth_${location.pathname === '/saved-news' && "main"}
+                                header__auth_${location.pathname === '/saved-news' && "savedNewsPage"}`}>Сохранённые статьи
+                            </Link>}
                             {
                                 loggedIn ?
                                     <button className={`header__exit header__exit_${location.pathname === '/saved-news' && "savedNews"}`} onClick={handleLogOut}>
@@ -68,6 +68,19 @@ function Header({ loggedIn, handleRegister, handleLogOut, mobileView, handleMobi
                         </nav>
                     }
                 </div>
+
+                {
+                    mobileView &&
+                    <HeaderMobile
+                        isOpen={mobileView}
+                        handleInfoClose={handleInfoClose}
+                        mobileView={mobileView}
+                        handleRegister={handleRegister}
+                        popupRegisterOpen={popupRegisterOpen}
+                        onClose={onClose}
+                    />
+                }
+
             </header>
         </>
     )

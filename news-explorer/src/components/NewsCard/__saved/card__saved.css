@@ -1,3 +1,6 @@
+@import url(./_hidden/card__saved_hidden.css);
+@import url(./_active/card__saved_active.css);
+
 .card__saved {
     position: relative;
     width: 40px;

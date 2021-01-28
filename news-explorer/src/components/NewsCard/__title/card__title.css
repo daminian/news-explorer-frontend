@@ -4,4 +4,20 @@
     line-height: 1.15;
     margin: 12px auto 16px; 
     color: #1A1B22;
+    text-decoration: none;
+}
+
+.card__title:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .card__title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 24px;
+        max-height: 72px;
+        padding-bottom: 10px;
+    }
 }

@@ -93,15 +93,3 @@ function Register({ name, setName, isOpen, email, setEmail, password, setPasswor
 }
 
 export default Register;
-
-/*
-{
-          successfulReg &&
-          <>
-          <p className="popup__heading">Пользователь успешно зарегистрирован!</p>
-          <button className="popup__text popup__text_enter" onClick={handleLogin}>Войти</button>
-          </>
-        }
-*/
-
-// {errors.email?.type === "required" && 'Это поле обязательно для заполнения'}

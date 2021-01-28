@@ -1,5 +1,6 @@
 @import url(./__nav/header__nav.css);
 @import url(./__auth/header__auth.css);
+@import url(./__auth/_mobile/header__auth_mobile.css);
 @import url(./__auth/_savedNewsPage/header__auth_savedNewsPage.css);
 @import url(./__auth/_loggedIn/header__auth_loggedIn.css);
 @import url(./__field/header__field.css);
@@ -8,12 +9,15 @@
 @import url(./__exit/_savedNews/header__exit_savedNews.css);
 @import url(./__logout/header__logout.css);
 @import url(./__mobile/header__mobile.css);
+@import url(./__mobile/_opened/header__mobile_opened.css);
 @import url(./__item/header__item.css);
+@import url(./__item/_savedNews/header__item_savedNews.css);
 @import url(./__info/header__info.css);
 @import url(./__list/header__list.css);
 @import url(./__list-item/header__list-item.css);
 @import url(./__close/header__close.css);
 @import url(./__container/header__container.css);
+@import url(./_mobile/header_mobile.css);
 
 .header {
     width: 100%;

@@ -9,3 +9,12 @@
   padding-right: 63px;
   white-space: pre-wrap;
 }
+
+@media screen and (max-width: 1024px) {
+  .main__text {
+    font-size: 18px;
+    line-height: 24px;
+    padding-right: 0;
+    padding-bottom: 48px;
+  }
+}

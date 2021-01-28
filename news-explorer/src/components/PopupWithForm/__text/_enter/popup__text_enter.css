@@ -6,3 +6,6 @@
   background-color: transparent;
 }
 
+.popup__text_enter:hover {
+  cursor: pointer;
+}

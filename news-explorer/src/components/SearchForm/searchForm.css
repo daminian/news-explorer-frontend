@@ -8,3 +8,9 @@
   padding-bottom: 80px;
   position: relative;
 }
+
+@media screen and (max-width: 1024px) {
+  .searchForm {
+      padding-bottom: 48px;
+  }
+}

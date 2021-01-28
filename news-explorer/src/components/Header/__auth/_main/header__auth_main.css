@@ -1,12 +1,6 @@
 .header__auth_main {
-    margin: 22px 16px 0;
-    padding-bottom: 21px;
-    border-bottom: 3px solid;
+  padding-bottom: 20px;
+  border-bottom: 3px solid;
+  position: relative;
+  top: 13px;
 }
-
-@media screen and (min-width: 1024px) {
-    .header__auth {
-        margin: 30px 32px 0;
-        padding-bottom: 26px;
-      } 
-    }
