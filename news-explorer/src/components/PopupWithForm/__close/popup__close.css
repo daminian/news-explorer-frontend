@@ -16,3 +16,13 @@
 .popup__close:hover {
     cursor: pointer;
 }
+
+@media screen and (max-width: 550px) {
+    .popup__close {
+        margin: 0;
+        width: 24px;
+        height: 24px;
+        right: 16px;
+        top: -38px;
+    }
+}

@@ -4,14 +4,7 @@
 
 
 .saved-news {
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin: 0 auto;
 
-}
-
-@media screen and (min-width: 1024px) {
-    .saved-news  {
-        width: 100%;
-        margin: 0;
-    }
 }

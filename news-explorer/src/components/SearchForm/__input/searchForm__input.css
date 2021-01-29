@@ -28,3 +28,9 @@
         line-height: 1.37;
     }
 }
+
+@media screen and (max-width: 550px) {
+    .searchForm__input {
+        margin-bottom: 16px;
+    }
+}

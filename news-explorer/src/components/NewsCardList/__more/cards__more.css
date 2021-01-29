@@ -1,6 +1,6 @@
 .cards__more {
     width: 288px;
-    height: 56px;
+    height: 64px;
     background: #FFFFFF;
     border-radius: 80px;
     font-family: 'Roboto';
@@ -8,16 +8,22 @@
     font-size: 18px;
     line-height: 1.33;
     border: 0;
-    margin: 0 auto 32px;
+    margin: 0 auto 80px;
 }
 
 .cards__more:hover {
     background: rgba(255, 255, 255, .9)
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .cards__more {
-    margin: 0 auto 80px;
-    height: 64px;
+    margin: 0 auto 40px;
+    height: 56px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .cards__more {
+        margin: 0 auto 32px;
     }
 }

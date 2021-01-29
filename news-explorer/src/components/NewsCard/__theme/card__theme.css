@@ -5,3 +5,17 @@
     background: #FFFFFF;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 1024px) {
+    .card__theme {
+        top: 8px;
+        left: 8px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .card__theme {
+        top: 16px;
+        left: 16px;
+    }
+}

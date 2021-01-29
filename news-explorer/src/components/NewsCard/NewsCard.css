@@ -28,6 +28,13 @@
 @media screen and (max-width: 1024px) {
     .card {
         width: 224px;
-        max-height: 420px;
+        max-height: 430px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card {
+        width: 288px;
+        max-height: 444px;
     }
 }

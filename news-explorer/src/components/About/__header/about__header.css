@@ -8,3 +8,17 @@
     margin: 0;
     padding-bottom: 24px;
 }
+
+@media screen and (max-width: 1024px) {
+    .about__header {
+        font-size: 30px;
+        line-height: 40px;
+        padding-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about__header {
+        padding-left: 16px;
+    }
+}

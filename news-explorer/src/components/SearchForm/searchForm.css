@@ -14,3 +14,10 @@
       padding-bottom: 48px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .searchForm {
+    padding-bottom: 32px;
+    flex-direction: column;
+  }
+}

@@ -7,3 +7,19 @@
     color: #1A1B22;
     margin: 0 0 56px 104px;
 }
+
+@media screen and (max-width: 1024px) {
+    .saved-news__key-words {
+        font-size: 14px;
+        line-height: 1.71;
+        margin: 0 0 32px 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .saved-news__key-words {
+        font-size: 18px;
+        line-height: 1.33;
+        margin: 0 17px 32px 15px;
+    }
+}

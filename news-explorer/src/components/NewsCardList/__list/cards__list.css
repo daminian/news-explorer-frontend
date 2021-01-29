@@ -2,7 +2,6 @@
     display: flex;
     row-gap: 16px;
     column-gap: 16px;
-    justify-content: center;
     margin: 0 auto;
     flex-wrap: wrap;
     width: 90%;
@@ -13,9 +12,14 @@
 @media screen and (max-width: 1024px) {
     .cards__list {
         padding-left: 40px;
-        width: 100%;
         padding-bottom: 32px;
         row-gap: 8px;
         column-gap: 8px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .cards__list {
+        padding: 0 0 16px 0;
     }
 }

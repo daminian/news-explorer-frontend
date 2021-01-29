@@ -4,3 +4,17 @@
     height: 144px;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 1024px) {
+    .about__text-field {
+        height: 192px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about__text-field {
+        height: 288px;
+        width: 90%;
+        margin: 0 auto;
+    }
+}

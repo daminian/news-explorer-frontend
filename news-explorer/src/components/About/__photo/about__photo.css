@@ -3,3 +3,17 @@
     height: 100%;
     margin: 0 56px 0 104px;
 }
+
+@media screen and (max-width: 1024px) {
+    .about__photo {
+        width: 232px;
+        margin: 21px 32px 0 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about__photo {
+        width: 272px;
+        margin: 0 auto;
+    }
+}

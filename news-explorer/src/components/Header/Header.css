@@ -33,3 +33,9 @@
     background-repeat: no-repeat;
     background-position: center top;
 }
+
+@media screen and (max-width: 340px) {
+    .header, .main {
+        background-image: url(../../images/main-header__background.jpg);
+    }
+}

@@ -12,5 +12,12 @@
 @media screen and (max-width: 1024px) {
     .card__text {
         max-height: 88px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card__text {
+        margin-top: 10px;
     }
 }

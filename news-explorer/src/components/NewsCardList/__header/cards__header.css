@@ -16,3 +16,11 @@
     line-height: 34px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .cards__header{
+    padding-left: 16px;
+    padding-bottom: 24px;
+    padding-right: 16px;
+  }
+}

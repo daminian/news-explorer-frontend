@@ -8,3 +8,20 @@
     row-gap: 16px;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width: 1024px) {
+    .saved-articles {
+        padding: 32px 40px;
+        column-gap: 8px;
+        row-gap: 8px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .saved-articles {
+        padding: 24px 16px;
+        column-gap: 9px;
+        row-gap: 9px;
+        margin-bottom: 24px;
+    }
+}
