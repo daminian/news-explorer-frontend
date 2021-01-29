@@ -5,12 +5,14 @@
 
 @media screen and (max-width: 1024px) {
     .card__info {
+        height: 206px;
         padding: 16px;
     }
   }
 
 @media screen and (max-width: 550px) {
     .card__info {
+        height: 230px;
         padding: 16px 16px 8px 16px;
     }
 }

@@ -19,13 +19,13 @@
         line-height: 24px;
         max-height: 72px;
         overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: pre-wrap;
+        margin: 12px auto 10px;
     }
 }
 
 @media screen and (max-width: 550px) {
     .card__title {
+        max-height: 52px;
         line-height: 28px;
         margin-bottom: 10px;
         padding-bottom: 0;

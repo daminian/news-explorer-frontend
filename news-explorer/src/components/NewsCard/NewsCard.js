@@ -52,7 +52,7 @@ function NewsCard({ card, handleClick, loggedIn, photo, date, title, text, sourc
 
             <div className="card__info">
                 <p className="card__date">{date}</p>
-                <a className="card__title" href={link}>{title}</a>
+                <a className="card__link" href={link}><p className="card__title">{title}</p></a>
                 <p className="card__text">{text}</p>
                 
             </div>
