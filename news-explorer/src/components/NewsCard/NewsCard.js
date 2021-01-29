@@ -19,7 +19,7 @@ function NewsCard({ card, handleClick, loggedIn, photo, date, title, text, sourc
     return (
 
         <figure className="card">
-            <img className="card__photo" src={photo} alt="" />
+            <img className="card__photo" src={photo} alt="Фотография статьи" />
             {
                 location.pathname === '/' &&
                 <div className="card__tooltip">

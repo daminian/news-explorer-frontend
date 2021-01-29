@@ -9,14 +9,10 @@
 }
 
 .searchForm__input::placeholder {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Arial', sans-serif;;
     font-weight: normal;
     font-size: 16px;
     line-height: 1.4;
-}
-
-.searchForm__input:focus {
-    outline: none;
 }
 
 @media screen and (max-width: 1024px) {

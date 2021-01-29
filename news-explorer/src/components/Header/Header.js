@@ -20,11 +20,11 @@ function Header({ loggedIn, handleRegister, handleLogOut, mobileView, handleMobi
                 <div className="header__field">
                     {
                         location.pathname === '/' &&
-                        <img className="header__logo" src={headerLogo} alt="Логотип Исследователь новостей" ></img>
+                        <img className="header__logo" src={headerLogo} alt="Логотип News-Explorer" ></img>
                     }
                     {
                         location.pathname === '/saved-news' &&
-                        <img className="header__logo" src={headerLogoSavedNews} alt="Логотип Исследователь новостей" ></img>
+                        <img className="header__logo" src={headerLogoSavedNews} alt="Логотип News-Explorer" ></img>
                     }
                     
                     {

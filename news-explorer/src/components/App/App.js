@@ -16,7 +16,7 @@ import { useForm } from 'react-hook-form';
 
 function App() {
 
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(true);
     const [currentUser, setCurrentUser] = useState(initialUser);
     const [cards, setCards] = useState(initiaCards);
     const [email, setEmail] = useState('');

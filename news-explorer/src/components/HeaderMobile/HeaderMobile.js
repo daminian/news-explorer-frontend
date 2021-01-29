@@ -23,14 +23,14 @@ function HeaderMobile({ handleRegister, isOpen, mobileView, handleInfoClose }) {
                         <div className="header__field">
                             {
                                 location.pathname === '/' || (location.pathname === '/saved-news' && mobileView) ?
-                                <img className="header__logo" src={headerLogo} alt="Логотип Исследователь новостей" ></img> 
+                                <img className="header__logo" src={headerLogo} alt="Логотип News-Explorer" ></img> 
                                 : ''
                             
                             }
 
                             {
                                 location.pathname === '/saved-news'  && !mobileView ?
-                                <img className="header__logo" src={headerLogoSavedNews} alt="Логотип Исследователь новостей" ></img>
+                                <img className="header__logo" src={headerLogoSavedNews} alt="Логотип News-Explorer" ></img>
                                 : ''
                             }
                     

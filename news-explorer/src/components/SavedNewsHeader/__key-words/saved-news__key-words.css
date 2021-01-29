@@ -1,7 +1,7 @@
 @import url(./_bold/saved-news__key-words_bold.css);
 
 .saved-news__key-words {
-    font-family: 'Roboto';
+    font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 18px;
     line-height: 1.33;
     color: #1A1B22;
