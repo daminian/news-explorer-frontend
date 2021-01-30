@@ -1,0 +1,21 @@
+.saved-news__text {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(26, 27, 34, 0.5);
+    margin: 40px 0 28px 104px;
+}
+
+@media screen and (max-width: 1024px) {
+    .saved-news__text {
+        font-size: 14px;
+        margin: 24px 0 16px 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .saved-news__text {
+        font-size: 12px;
+        margin: 8px 0 16px 16px;
+    }
+}

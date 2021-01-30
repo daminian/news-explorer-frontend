@@ -1,0 +1,26 @@
+@import url(./_hidden/card__saved_hidden.css);
+@import url(./_active/card__saved_active.css);
+
+.card__saved {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-image: url(../../../images/card__saved.svg);
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    background-position: center;
+    border: 0;
+    cursor: pointer;
+}
+
+.card__saved:disabled {
+    background-color: #FFFFFF;
+}
+
+.card__saved:hover {
+    background-image: url(../../../images/card__saved_not-loggenIn.svg);
+}
+
+.card__saved:hover + .card__saved-info {
+    display: flex;
+}

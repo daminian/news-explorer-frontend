@@ -1,0 +1,9 @@
+@import url(./__links/navigation__links.css);
+@import url(./__link/navigation__link.css);
+@import url(./__text/navigation__text.css);
+@import url(./__items/navigation__items.css);
+
+.navigation {
+    display: flex;
+    align-items: flex-start;
+}

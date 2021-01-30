@@ -1,0 +1,14 @@
+.navigation__items {
+    display: flex;
+    width: 304px;
+    justify-content: space-around;
+    height: 22px;
+}
+
+@media screen and (max-width: 550px) {
+    .navigation__items{
+        flex-direction: column;
+        width: 200px;
+        align-items: baseline;
+    }
+}

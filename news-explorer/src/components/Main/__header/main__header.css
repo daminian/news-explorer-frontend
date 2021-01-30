@@ -1,0 +1,29 @@
+.main__header {
+    font-family: 'Roboto Slab', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    padding:80px 0 32px 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .main__header {
+        padding:38px 0 16px 0;
+        font-size: 36px;
+        line-height: 40px;
+        margin: 0;
+        margin-right: 35px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .main__header {
+        padding: 30px 0 16px 0;
+        font-size: 36px;
+        line-height: 40px;
+        margin-right: 0;
+    }
+}

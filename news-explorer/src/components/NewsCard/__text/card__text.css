@@ -1,0 +1,22 @@
+.card__text {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.37;
+    color: #1A1B22;
+    max-height: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .card__text {
+        max-height: 88px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card__text {
+        margin-top: 10px;
+    }
+}

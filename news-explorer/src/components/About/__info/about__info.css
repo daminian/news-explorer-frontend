@@ -1,0 +1,16 @@
+.about__info {
+    max-width: 600px;
+    margin: 51px 0 0 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .about__info {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about__info {
+        margin-top: 24px;
+    }
+}

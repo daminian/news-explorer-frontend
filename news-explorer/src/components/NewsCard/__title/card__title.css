@@ -1,0 +1,32 @@
+.card__title {
+    font-family: 'Roboto Slab', 'Arial', sans-serif;
+    font-size: 26px;
+    line-height: 1.15;
+    margin: 12px auto 16px; 
+    color: #1A1B22;
+    text-decoration: none;
+}
+
+.card__title:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .card__title {
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 24px;
+        max-height: 72px;
+        overflow: hidden;
+        margin: 12px auto 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card__title {
+        max-height: 52px;
+        line-height: 28px;
+        margin-bottom: 10px;
+        padding-bottom: 0;
+    }
+}

@@ -1,0 +1,10 @@
+#root {
+    margin: 0 auto;
+}
+
+.root {
+    margin: 0 auto;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    text-rendering: optimizeLegibility;
+    max-width: 1440px;
+}

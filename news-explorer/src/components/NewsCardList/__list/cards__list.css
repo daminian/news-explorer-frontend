@@ -1,0 +1,25 @@
+.cards__list {
+    display: flex;
+    row-gap: 16px;
+    column-gap: 16px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    width: 90%;
+    padding-bottom: 64px;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width: 1024px) {
+    .cards__list {
+        padding-left: 40px;
+        padding-bottom: 32px;
+        row-gap: 8px;
+        column-gap: 8px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .cards__list {
+        padding: 0 0 16px 0;
+    }
+}

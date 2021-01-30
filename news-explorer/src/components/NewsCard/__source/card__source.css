@@ -1,0 +1,16 @@
+.card__source {
+    font-family: 'Roboto Slab';
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #B6BCBF;
+    margin: 0 0 24px 24px;
+}
+
+@media screen and (max-width: 1024px) {
+    .card__source {
+        margin: 6px 0 16px 16px;
+    }
+}

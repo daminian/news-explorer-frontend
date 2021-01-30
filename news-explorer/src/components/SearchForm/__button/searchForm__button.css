@@ -1,0 +1,41 @@
+.searchForm__button {
+    width: 168px;
+    height: 64px;
+    background: #2F71E5;
+    box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+    border-radius: 100px;
+    border: 0;
+    color: #FFFFFF;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+.searchForm__button:hover {
+    background: #347EFF;
+}
+
+.searchForm__button:active {
+    background: #2A65CC;
+}
+
+.searchForm__button:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .searchForm__button {
+        height: 56px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .searchForm__button {
+        position: unset;
+        width: 100%;
+    }
+}

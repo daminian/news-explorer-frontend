@@ -1,0 +1,26 @@
+.main__text {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 auto;
+  padding-bottom: 64px;
+  padding-right: 63px;
+  white-space: pre-wrap;
+}
+
+@media screen and (max-width: 1024px) {
+  .main__text {
+    font-size: 18px;
+    line-height: 24px;
+    padding-right: 0;
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .main__text {
+    padding-bottom: 122px;
+  }
+}

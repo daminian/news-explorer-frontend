@@ -1,0 +1,11 @@
+.header__info {
+    display: none;
+}
+
+@media screen and (max-width: 550px) {
+    .header__info {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+}
