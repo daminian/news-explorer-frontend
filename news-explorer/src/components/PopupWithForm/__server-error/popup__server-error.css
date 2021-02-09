@@ -1,0 +1,10 @@
+.popup__server-error {
+    display: block;
+    position: relative;
+    top: 16px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #FF0000;
+}
