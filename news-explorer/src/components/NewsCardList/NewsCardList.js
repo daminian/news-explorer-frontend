@@ -3,23 +3,23 @@ import NewsCard from '../NewsCard/NewsCard.js';
 import Preloader from '../Preloader/Preloader.js';
 import NewsNotFound from '../NewsNotFound/NewsNotFound.js';
 import ErrorRequest from '../ErrorRequest/ErrorRequest.js';
+import { NOMBER_OF_CARDS } from '../../constants/Constants.js';
 import { Route } from 'react-router-dom';
 import { CurrentCardContext } from '../../context/CurrentCardContext.js';
 
 
-function NewsCardList({ handleClick, loggedIn, load, errReq, newsNotFound }) {
+function NewsCardList({ handleClick, loggedIn, load, errReq, newsNotFound, isArticleSave }) {
 
     const cards = useContext(CurrentCardContext);
-    const [numberOfCards, setNumberOfCards] = useState(3);
+    const [numberOfCards, setNumberOfCards] = useState(NOMBER_OF_CARDS);
 
     function showMoreCards() {
         if (cards.length > numberOfCards) {
-            setNumberOfCards(numberOfCards + 3);
+            setNumberOfCards(numberOfCards + NOMBER_OF_CARDS);
         }
     }
 
     return (
-        <>
             <section className="cards">
                 {
                     load && <Preloader />
@@ -43,6 +43,7 @@ function NewsCardList({ handleClick, loggedIn, load, errReq, newsNotFound }) {
                         loggedIn={loggedIn} 
                         handleClick={handleClick}
                         card = {item}
+                        isArticleSave={isArticleSave}
                         {...item} />))
                     }
                 </div>
@@ -56,7 +57,6 @@ function NewsCardList({ handleClick, loggedIn, load, errReq, newsNotFound }) {
                 }
 
             </section>
-        </>
     )
 }
 

@@ -1,3 +1,7 @@
+import { BASE_URL,
+        API_KEY,
+        NUMBER_OF_DAYS_TO_SEARCH } from '../constants/Constants.js';
+
 class Api {
     constructor(config) {
         this._url = config.url;
@@ -5,12 +9,12 @@ class Api {
         
 
         const pastDate = new Date();
-        const previousDate = pastDate.getDate() -7;
+        const previousDate = pastDate.getDate() - NUMBER_OF_DAYS_TO_SEARCH;
         pastDate.setDate(previousDate)
 
-        this._pastDate = pastDate;
+        this._pastDate = pastDate.toISOString();
         this._nowDate = new Date();
-        this._apiKey = '3122b2b13ecb4079af54fa1a64edc783';
+        this._apiKey = API_KEY;
         this._language = 'ru'
         this._pageSize = 100;
          
@@ -32,7 +36,7 @@ class Api {
 }
 
 const NewsApi = new Api({
-    url: 'http://newsapi.org/v2/everything',
+    url: BASE_URL,
     headers: {
       'Content-Type': 'application/json',
     }

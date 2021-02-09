@@ -15,7 +15,6 @@ function HeaderMobile({ handleRegister, isOpen, mobileView, handleInfoClose }) {
       }
 
     return ( 
-        <>
             <div className={`header__mobile header__mobile_${isOpen ? "opened" : ""}`} onClick={handleOverlay}>
                 <div className="header__container">
                     <div className={`header header_${location.pathname === '/saved-news' && "savedNews"} 
@@ -46,7 +45,6 @@ function HeaderMobile({ handleRegister, isOpen, mobileView, handleInfoClose }) {
                     <button className="header__auth header__auth_mobile" onClick={handleRegister}>Авторизироваться</button>
                 </div>
             </div>
-        </>
     )
 }
 

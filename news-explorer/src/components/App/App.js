@@ -52,12 +52,10 @@ function App() {
     });
 
     useEffect(() => {
-        const token = localStorage.getItem('jwt');
-        if(loggedIn===false) {
-            if (history.location.state && history.location.state.noAuthRedirected && history.action === "REPLACE") {
-                setPopupLoginOpen(true)
-            }
+        if (history.location.state && history.location.state.noAuthRedirected && history.action === "REPLACE") {
+            setPopupLoginOpen(true)
         }
+        const token = localStorage.getItem('jwt');
         
         if (token) {
             MainApi.getContent(token)
@@ -68,7 +66,12 @@ function App() {
             
             MainApi.getArticle(token)
             .then((items) => {
-                setSavedCards(items)
+                const mySavedCards = items.filter((item) => {
+                    if(currentUser.email === item.owner.email) {
+                        return item
+                    }
+                })
+                setSavedCards(mySavedCards)
             })
         }
 
@@ -84,7 +87,7 @@ function App() {
         }
         document.addEventListener('keydown', handleEsc)
         return () => window.removeEventListener('keydown', handleEsc)
-    }, [])
+    }, [currentUser, savedCards, history])
 
     function handleSaveArtical(card) {
         if(loggedIn===false) {
@@ -92,8 +95,8 @@ function App() {
         } else {
             const token = localStorage.getItem('jwt');
             MainApi.saveArticle(card, token)
-            .then((savedCard) => {
-                setSavedCards([...savedCards, savedCard])
+            .then((item) => {
+                setSavedCards([item, ...savedCards])
             })
             .catch(err => {
                 console.log(err)
@@ -109,7 +112,6 @@ function App() {
                 return item._id !== card
             });
             setSavedCards(newCards)
-            console.log(newCards)
         })
         .catch(err => {
             console.log(err)
@@ -150,18 +152,22 @@ function App() {
     function handleSubmitRegister() {
         MainApi.register(email, password, name)
             .then((res) => {
+                if(!res) {
+                    setErrorText('На сервере произошла ошибка, попробуйте позднее')
+                }
                 if (res) {
-                    console.log(res)
                     showRegisterOk(true);
                     setCurrentUser(res)
                     setErrorText('')
                 }
+                console.log(res)
             })
             .catch((err) => {
                 if(err==='Ошибка: 409') {
                     setErrorText('Такой пользователь уже существует')
-                } if (err==='Ошибка: 400')
+                } if (err==='Ошибка: 400') {
                     setErrorText('На сервере произошла ошибка, попробуйте позднее')
+                }
             })
     }
 

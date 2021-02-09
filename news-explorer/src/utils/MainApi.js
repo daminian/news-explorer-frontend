@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.news-daminian.students.nomoreparties.space';
+const BASE_URL = 'https://api.news-daminian.students.nomoreparties.space';
 
 const checkResponce = (res) => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
 

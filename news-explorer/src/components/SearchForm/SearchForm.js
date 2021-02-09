@@ -12,12 +12,10 @@ function SearchForm({setSearch, search, handleSearchSubmit}) {
     }
 
     return (
-        <>
            <form className="searchForm">
                <input className="searchForm__input" type="text" name="search" placeholder={searchText || "Введите тему новости"} onChange={handleSearchChange} value={search} required ></input>
                <button disabled={isButtonDisabled} className="searchForm__button" type="submit" onClick={handleSearchSubmit} >Искать</button>
            </form>
-        </>
     )
 }
 

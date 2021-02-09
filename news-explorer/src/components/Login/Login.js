@@ -57,7 +57,7 @@ errors, errorText }) {
         </div>
         <div className="popup__field">
         <p className="popup__label">Пароль</p>
-            <input className="popup__item" type="text" name="password"
+            <input className="popup__item" type="password" name="password"
                 placeholder="Введите пароль" value={password} onChange={handlePasswordChange}
                 ref={register({
                     required: true,

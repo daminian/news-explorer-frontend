@@ -5,7 +5,6 @@ import photo from '../../images/about__photo.jpg';
 function About() {
 
     return (
-        <>
             <section className="about">
                 <img className="about__photo" src={photo} alt="Фотография пользователя" />
                 <div className="about__info">
@@ -18,7 +17,6 @@ function About() {
                     </div>
                 </div>
             </section>
-        </>
     )
 }
 
