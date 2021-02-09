@@ -3,7 +3,7 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
 import validator from 'validator';
 
 function Login({ isOpen, email, setEmail, password, setPassword, handleLogin, handleRegister, onClose, handleSubmit, register,
-errors }) {
+errors, errorText }) {
 
     function handlePasswordChange(e) {
         setPassword(e.target.value)
@@ -33,6 +33,7 @@ errors }) {
        popupWithoutButton={false}
        handleSubmit={handleSubmit}
        isInvalid={isInvalid}
+       errorText={errorText}
        children={
         <>
         <div className="popup__field">
@@ -56,7 +57,7 @@ errors }) {
         </div>
         <div className="popup__field">
         <p className="popup__label">Пароль</p>
-            <input className="popup__item" type="text" name="password"
+            <input className="popup__item" type="password" name="password"
                 placeholder="Введите пароль" value={password} onChange={handlePasswordChange}
                 ref={register({
                     required: true,

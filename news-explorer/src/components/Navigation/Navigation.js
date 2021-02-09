@@ -6,7 +6,6 @@ import FBLink from '../../images/navigation__link-fb.svg';
 function Navigation() {
 
     return (
-        <>
             <nav className="navigation">
                 <div className="navigation__items">
                     <Link to="/" className="navigation__text">Главная</Link>
@@ -22,7 +21,6 @@ function Navigation() {
                 </ul>
 
             </nav>
-        </>
     )
 }
 

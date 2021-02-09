@@ -1,7 +1,7 @@
 import React from 'react';
 
 function PopupWithForm({ name, isOpen, title, children, submitButtonText, onClose, isInvalid, text, handleLogin, RegOpen, 
-  loginOpen, handleRegister, popupWithoutButton, handleSubmit }) {
+  loginOpen, handleRegister, popupWithoutButton, handleSubmit, errorText }) {
 
     function handleOverlay(evt) {
       const element = evt.target;
@@ -18,8 +18,11 @@ function PopupWithForm({ name, isOpen, title, children, submitButtonText, onClos
         <h3 className={`popup__heading popup__heading_${popupWithoutButton && "info"}`}>{title}</h3>
         {children}
         {
-          !popupWithoutButton && <button disabled={isInvalid} className="popup__button"
-            type="submit">{submitButtonText}</button>
+          !popupWithoutButton && 
+          <div className="popup__field">
+            <span className="popup__server-error">{errorText}</span>
+            <button disabled={isInvalid} className="popup__button" type="submit">{submitButtonText}</button>
+          </div>
         }
         
         <div className={`popup__link popup__link_${popupWithoutButton && "info"}`}>
@@ -28,10 +31,10 @@ function PopupWithForm({ name, isOpen, title, children, submitButtonText, onClos
           }
           {
             RegOpen &&  <a className={`popup__text popup__text_enter popup__text_${popupWithoutButton && "info"}`}
-            onClick={handleLogin}>{text}</a>
+            onClick={handleLogin} href='/'>{text}</a>
           }
           {
-            loginOpen &&  <a className="popup__text popup__text_enter" onClick={handleRegister}>{text}</a>
+            loginOpen &&  <a className="popup__text popup__text_enter" onClick={handleRegister} href='/'>{text}</a>
           }
           
            

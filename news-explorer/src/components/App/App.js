@@ -5,27 +5,35 @@ import Main from '../Main/Main.js';
 import NewsCardList from '../NewsCardList/NewsCardList.js';
 import About from '../About/About.js';
 import Footer from '../Footer/Footer.js';
-import { CurrentUserContext, initialUser } from '../../context/CurrentUserContext.js';
+import { CurrentUserContext } from '../../context/CurrentUserContext.js';
 import { CurrentCardContext, initiaCards } from '../../context/CurrentCardContext.js';
-import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader.js';
+import ProtectedRoute from '../ProtectedRoute/protectedRoute.js';
 import SavedNews from '../SavedNews/SavedNews.js';
 import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import { useForm } from 'react-hook-form';
+import NewsApi from '../../utils/NewsApi';
+import * as MainApi from '../../utils/MainApi.js';
 
 function App() {
 
-    const [loggedIn, setLoggedIn] = useState(true);
-    const [currentUser, setCurrentUser] = useState(initialUser);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [currentUser, setCurrentUser] = useState('');
+    const [savedCards, setSavedCards] = useState([]);
     const [cards, setCards] = useState(initiaCards);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [popupRegisterOpen, setPopupRegisterOpen] = useState(false);
     const [popupLoginOpen, setPopupLoginOpen] = useState(false);
+    const [errorText, setErrorText] = useState('');
     const [registerOk, setRegisterOk] = useState(false);
-    const [mobileView, setMobileView] = useState(false)
+    const [mobileView, setMobileView] = useState(false);
+    const [search, setSearch] = useState('');
+    const [load, setLoad] = useState(false);
+    const [errReq, setErrReq] = useState(false);
+    const [newsNotFound, setNewsNotFound] = useState(false);
     const history = useHistory();
 
     const { register, errors, handleSubmit, clearErrors } = useForm({
@@ -43,8 +51,71 @@ function App() {
         mode: 'onBlur',
     });
 
+    useEffect(() => {
+        if (history.location.state && history.location.state.noAuthRedirected && history.action === "REPLACE") {
+            setPopupLoginOpen(true)
+        }
+        const token = localStorage.getItem('jwt');
+        
+        if (token) {
+            MainApi.getContent(token)
+                .then((user) => {
+                    setLoggedIn(true);
+                    setCurrentUser(user);
+                });
+            
+            MainApi.getArticle(token)
+            .then((items) => {
+                const mySavedCards = items.filter((item) => {
+                    if(currentUser.email === item.owner.email) {
+                        return item
+                    }
+                })
+                setSavedCards(mySavedCards)
+            })
+        }
+
+        const articles = JSON.parse(localStorage.getItem('articles'));
+        if (articles) {
+            setCards(articles)
+        }
+
+        function handleEsc(evt) {
+            if (evt.key === 'Escape') {
+                closeAllPopups()
+            }
+        }
+        document.addEventListener('keydown', handleEsc)
+        return () => window.removeEventListener('keydown', handleEsc)
+    }, [currentUser, savedCards, history])
+
     function handleSaveArtical(card) {
-        console.log('You can save this artical')
+        if(loggedIn===false) {
+            setPopupRegisterOpen(true)
+        } else {
+            const token = localStorage.getItem('jwt');
+            MainApi.saveArticle(card, token)
+            .then((item) => {
+                setSavedCards([item, ...savedCards])
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    }
+
+    function handleDeleteArticle(card) {
+        const token = localStorage.getItem('jwt');
+        MainApi.deleteArticle(card, token)
+        .then(() => {
+            const newCards = savedCards.filter((item) => {
+                return item._id !== card
+            });
+            setSavedCards(newCards)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     function handleRegister(e) {
@@ -67,6 +138,7 @@ function App() {
     function closeAllPopups() {
         clearErrors()
         clearErrorsLogin()
+        setErrorText('')
         setPopupLoginOpen(false)
         setPopupRegisterOpen(false)
         setRegisterOk(false)
@@ -77,28 +149,52 @@ function App() {
         setRegisterOk(true);
     }
 
-    useEffect(() => {
-        function handleEsc(evt) {
-            if (evt.key === 'Escape') {
-                closeAllPopups()
-            }
-        }
-        document.addEventListener('keydown', handleEsc)
-        return () => window.removeEventListener('keydown', handleEsc)
-    }, [])
-
     function handleSubmitRegister() {
-        console.log('Register')
-        showRegisterOk()
+        MainApi.register(email, password, name)
+            .then((res) => {
+                if(!res) {
+                    setErrorText('На сервере произошла ошибка, попробуйте позднее')
+                }
+                if (res) {
+                    showRegisterOk(true);
+                    setCurrentUser(res)
+                    setErrorText('')
+                }
+                console.log(res)
+            })
+            .catch((err) => {
+                if(err==='Ошибка: 409') {
+                    setErrorText('Такой пользователь уже существует')
+                } if (err==='Ошибка: 400') {
+                    setErrorText('На сервере произошла ошибка, попробуйте позднее')
+                }
+            })
     }
 
     function handleSubmitLogin() {
-        setLoggedIn(true);
-        closeAllPopups();
+        MainApi.authorize(email, password)
+            .then((data) => {
+                localStorage.setItem('jwt', data.token)
+                if (data.token) {
+                    setLoggedIn(true);
+                    closeAllPopups();
+                    setErrorText('')
+                }
+            })
+            .catch((err) => {
+                if (err === 'Ошибка: 400') {
+                    setErrorText('Неверный email или пароль')
+                }
+                if (err === 'Ошибка: 401') {
+                    setErrorText('Пользователь с email не найден')
+                }
+            })
     }
 
     function handleLogOut() {
         setLoggedIn(false);
+        setSavedCards([])
+        localStorage.clear();
         history.push('/');
     }
 
@@ -108,6 +204,44 @@ function App() {
 
     function handleInfoClose() {
         setMobileView(false)
+    }
+
+    function handleSearchSubmit(e) {
+        e.preventDefault();
+        setNewsNotFound(false);
+        setErrReq(false);
+        setLoad(true);
+        NewsApi.getNews(search)
+        .then((data) => {
+            const cardsList = data.articles.map((item, index) => ({
+                id: index,
+                keyword: search,
+                title: item.title,
+                text: item.description,
+                date: new Date(`${item.publishedAt}`).toLocaleString('ru', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }),
+                source: item.source.name,
+                link: item.url,
+                image: item.urlToImage,
+            }));
+            setCards(cardsList);
+            localStorage.setItem('articles', JSON.stringify(cardsList))
+            localStorage.setItem('searchText', search)
+            setLoad(false);
+
+            if (data.articles.length === 0) {
+                setNewsNotFound(true)
+            }
+        })
+        .catch((err) => {
+            setLoad(false)
+            setErrReq(true)
+            console.log(err)
+        })
+        
     }
 
     return (
@@ -131,18 +265,28 @@ function App() {
                                 popupLoginOpen={popupLoginOpen}/>
 
                             <Route exact path='/'>
-                                <Main />
-                                <NewsCardList handleClick={handleSaveArtical}
+                                <Main 
+                                    search={search}
+                                    setSearch={setSearch}
+                                    handleSearchSubmit={handleSearchSubmit}
+                                />
+                                <NewsCardList 
+                                    handleClick={handleSaveArtical}
                                     loggedIn={loggedIn}
                                     setCards={setCards}
+                                    load={load}
+                                    errReq={errReq}
+                                    newsNotFound={newsNotFound}
                                 />
                                 <About />
                             </Route>
 
-                            <Route path='/saved-news'>
-                                <SavedNewsHeader />
-                                <SavedNews />
-                            </Route>
+                            <ProtectedRoute path="/saved-news"
+                                isLoggedIn={loggedIn} 
+                                cards={savedCards}
+                                handleDeleteClick={handleDeleteArticle}
+                                component={SavedNews}
+                            />
 
                             <Footer />
                             
@@ -160,6 +304,7 @@ function App() {
                                 register={register}
                                 errors={errors}
                                 handleSubmit={handleSubmit(handleSubmitRegister)}
+                                errorText={errorText}
                             />
 
                             <Login
@@ -174,6 +319,7 @@ function App() {
                                 register={regLogin}
                                 errors={errLogin}
                                 handleSubmit={submitLogin(handleSubmitLogin)}
+                                errorText={errorText}
                             />
 
                             <InfoTooltip

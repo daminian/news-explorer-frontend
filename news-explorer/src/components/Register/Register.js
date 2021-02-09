@@ -4,7 +4,7 @@ import validator from 'validator';
 
 
 function Register({ name, setName, isOpen, email, setEmail, password, setPassword, handleLogin, onClose, register, 
-    errors, handleSubmit }) {
+    errors, handleSubmit, errorText }) {
 
     function handlePasswordChange(e) {
         setPassword(e.target.value)
@@ -39,7 +39,7 @@ function Register({ name, setName, isOpen, email, setEmail, password, setPasswor
             onClose={onClose}
             popupWithoutButton={false}
             isInvalid={isInvalid}
-            
+            errorText={errorText}            
             text="Войти"
             children={
                 <>
@@ -63,7 +63,7 @@ function Register({ name, setName, isOpen, email, setEmail, password, setPasswor
                     </div>
                     <div className="popup__field">
                         <p className="popup__label">Пароль</p>
-                        <input className="popup__item" type="text" name="password" placeholder="Введите пароль" value={password} onChange={handlePasswordChange}
+                        <input className="popup__item" type="password" name="password" placeholder="Введите пароль" value={password} onChange={handlePasswordChange}
                             ref={register({
                                 required: true,
                             })}

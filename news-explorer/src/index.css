@@ -13,5 +13,6 @@
 @import url(./components/SavedNewsHeader/SavedNewsHeader.css);
 @import url(./components/SavedNews/SavedNews.css);
 @import url(./components/Preloader/Preloader.css);
+@import url(./components/NewsNotFound/NewsNotFound.css);
 @import url(./components/PopupWithForm/PopupWithForm.css);
 @import url(./components/PopupWithForm/_opened/popup_opened.css);

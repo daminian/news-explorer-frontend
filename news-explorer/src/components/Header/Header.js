@@ -15,7 +15,6 @@ function Header({ loggedIn, handleRegister, handleLogOut, mobileView, handleMobi
     const location = useLocation();
 
     return (
-        <>
             <header className={`header header_${location.pathname === '/saved-news' && "savedNews"}`}>
                 <div className="header__field">
                     {
@@ -82,7 +81,6 @@ function Header({ loggedIn, handleRegister, handleLogOut, mobileView, handleMobi
                 }
 
             </header>
-        </>
     )
 }
 

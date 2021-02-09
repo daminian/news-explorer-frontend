@@ -9,6 +9,7 @@
 @import url(./__link/popup__link.css);
 @import url(./__item-error/popup__item-error.css);
 @import url(./__text/_enter/popup__text_enter.css);
+@import url(./__server-error/popup__server-error.css);
 .popup {
   display: flex;
   position: fixed;
